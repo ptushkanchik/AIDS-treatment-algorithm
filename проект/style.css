@@ -1,0 +1,280 @@
+body {background:url("concrete_seamless.png");
+	}
+	
+	                                                  /*  СТИЛИ ДЛЯ элементов появляющихся при запуске программы  */
+#head     {width:100%;
+        word-spacing:15px;
+		text-align:center;
+		font-size:35px;
+		font-weight:bold;
+		border-radius:10px;
+		padding:0px;
+		background:linear-gradient(to top left, #FFDEAD, #FFFAF0);
+		box-shadow:10px 8px 20px -1px black;}
+		
+
+			
+.menu { display:table;		
+		width:250px;
+		height:100px;
+		text-align:center;			
+		border-radius:10px;
+		line-height:100%;
+		box-shadow:10px 8px 20px -1px black;
+		background:linear-gradient(to top left, #FFDEAD, #FFFAF0);
+		transition-property:width;
+        transition-duration:0.125s;
+		transition-timing-function:ease-in;
+		transition-delay:0.005s;
+		}
+
+		
+.menu:hover {width:265px;
+			 background:#FFFAF0;
+			 cursor:pointer;}
+		
+
+
+span {display:table-cell;
+	vertical-align:middle;}
+	
+#left_menu {width:250px;
+			left:20px;
+			padding:5px;			
+			margin:10px;			
+			}
+
+#field {position:relative;
+		top:-601px;
+		left:280px;		
+		width:950px;
+		height:696px;
+		margin:10px;
+		}
+		
+ /* стиль для стартового окна */
+#start_window {position:absolute;
+			   box-shadow:10px 8px 20px -1px black;
+			   border-radius:8px;
+			   background:linear-gradient(to top left, #FFDEAD, #FFFAF0 );
+			   opacity:1;
+			   } 
+			   
+/* стиль для параграфа в стартовом окне */		
+#paragraph_Start {position:absolute;
+				top:40px;
+				left:20px;
+				font:large bold;
+				text-indent:30px; 
+				margin:40px;
+				}
+				
+/* стиль для списка приказов МОЗ  в стартовом окне */
+#ul_Start {position:absolute;
+		  top:140px;
+		  margin:30px; 
+		  }
+		  
+		  
+/* стиль для параграфов лекарственных средств */				
+.Drugs {display:none}
+
+						
+						
+						                                    /*  СТИЛИ ДЛЯ РАЗДЕЛА "СТАРТ АНТИРЕТРОВИРУСНОЙ ТЕРАПИИ"  */
+						 
+/* стиль для параграфа в стартовом окне */
+#paragraph_Start_ART {font: bold; 
+					  position:absolute;
+					  top:20px;
+					  left:20px;
+					  }
+					  
+/* стиль для блока с таблицей вопросов "ПОЛ, ПРИНИМАЕТ ЛИ РИФАМПИЦИН .." */
+#divTab_Questions {float:left;
+				   position:absolute;
+				   top:140px;
+				   margin-right:50px;
+				   margin-left:30px;
+				   }
+
+/* стиль для таблицы вопросов "ПОЛ, ПРИНИМАЕТ ЛИ РИФАМПИЦИН .." */
+#tableQuestions {border-spacing:5px;
+				}
+
+/* стиль для ячеек таблицы вопросов "ПОЛ, ПРИНИМАЕТ ЛИ РИФАМПИЦИН.."*/
+#tdTableQuestions {width:150px;
+				   height:60px;
+				   text-align:center;
+				   vertical-align:middle;
+				   border-radius:10px;
+				   background:linear-gradient(to top left, #CD853F , #FFDEAD);
+				   box-shadow:10px 8px 20px -1px black;
+				   }
+				   
+/*стиль для ячеек выбора ответов на вопросы ("Да/Нет", "Мужской/женский")*/				   
+.tdQuestions {width:150px;
+			height:52px;
+			text-align:center;
+			vertical-align:middle;
+			border-radius:10px;
+			box-shadow:10px 8px 20px -1px black;
+			cursor:pointer;
+			}				   
+
+			
+/*стиль ля окна вывода схемы АРТ-терапии*/
+#res {background:white;
+	position:absolute;
+	top:125px;
+	left:580px;
+	border:2px solid black;
+	border-radius:10px; 
+	padding:5px
+	}				  
+					
+				
+
+
+				                                                  /*  СТИЛИ ДЛЯ РАЗДЕЛА "ОППОРТУНИСТИЧЕСКИЕ ИНФЕКЦИИ"  */
+				
+/*стиль для параграфа*/					
+#paragraphOpportunity {font: bold; 
+						position:absolute;
+						top:20px;
+						left:20px; 
+						}
+
+/*стиль для таблицы выбора инфекции*/						
+#oppTab {position:absolute;
+		top:110px;
+		left:60px;
+		border-spacing:20px;
+		}				
+					
+/*стиль для ячеек таблицы выбора инфекции*/					
+.oppTabTD	{width:220px;
+			height:110px;
+			 border:4px outset;
+			 border-radius:10px;
+			 text-align:center;
+			 vertical-align:middle;
+			 background:linear-gradient(to top left, #CD853F , #FFDEAD);
+			 box-shadow:10px 8px 20px -1px black;
+			 cursor:pointer
+			 }				
+
+.oppTabTD:hover {background:#FFFAF0;}		
+.oppTabTD:active {border:4px inset;}	 
+					
+/*стиль для окна вывода информации о конкретной инфекции*/	
+#divOpp {background:white;
+		border:2px solid black; 
+		border-radius:10px;
+		padding:10px;
+		overflow:auto;
+		position:absolute;
+		top:130px;
+		box-shadow:10px 8px 20px -1px black;
+		}			   
+		
+/*стиль для кнопки "Назад"*/
+#buttonBack {cursor:pointer;
+			position:absolute;
+			top:140px;
+			left:57px;
+			border-radius:5px
+			}		
+		
+		
+		
+		
+		
+		                                                           /*  СТИЛИ ДЛЯ РАЗДЕЛА "СПИСОК ЛЕКАРТСВЕННЫХ СРЕДСТВ"  */
+					
+/*стиль для параграфа */
+#attentionDrugs	{font: bold; 
+				position:absolute;
+				top:20px;
+				left:20px;}				
+					
+/* стиль для кнопки прокрутки вверх */					
+#Up {width:100px; 
+	height:40px;  
+	background:gray;
+	border-top-left-radius: 100px;
+	border-top-right-radius: 100px;
+	position:absolute;
+	top:103px;
+	left:75px; 
+	cursor:pointer;	
+	}
+#Up:active {background:LightGray;}
+
+/* стиль для спецсимвола - стрелки вверх */
+#Up>p {position:absolute;
+	  top:-5px;
+	  left:42px}
+	
+/* стиль для кнопки прокрутки вниз */		
+#Down {width:100px;
+	   height:40px;  
+	   background:gray; 
+	   border-bottom-left-radius: 100px;
+	   border-bottom-right-radius: 100px; 
+	   position:absolute; top:505px; 
+	   left:75px; 
+	   cursor:pointer;
+	   }
+#Down:active {background:LightGray;}
+
+/* стиль для спецсимвола - стрелки вниз */	   
+#Down>p {position:absolute;
+	    top:-5px;
+	    left:42px}	   
+
+/* стиль для контейнера,вмещающего контейнер с таблицей - списком лекарств */	   
+#container {width:170px; 
+			height:342px; 
+			background:linear-gradient(to top left,AntiqueWhite, OldLace ); 
+			position:absolute;
+			top:149px; 
+			left:40px;
+			overflow:hidden;}
+
+/* стиль для контейнера	вмещающего таблицу со списком лекарств */ 		
+#containerUp {width:186px; 
+			  height:342px;
+			  background:linear-gradient(to top left,AntiqueWhite, OldLace );
+			  border:2px black;
+			  position:absolute; 
+			  top:0px; 
+			  left:5px; 
+			  overflow:auto;
+			  }
+			  
+/* стиль для таблицы со списком лекарств */			  
+#listDrugs {border-spacing:0px;
+			}
+					
+/*стиль для ячеек таблицы - списка лекарственных средств в разделе "Список лекартсвенных средств"	*/	
+.td_list_Drugs {width:156px; 
+			    height:40px; 
+                background:linear-gradient(to top left,AntiqueWhite, OldLace );
+                vertical-align:middle;
+                text-align:center; 
+                cursor:pointer;
+				transition-property:font-size;
+                transition-duration:0.125s;
+		        transition-timing-function:ease-in;
+		        transition-delay:0.005s;
+				border-radius:5px;
+				}	
+				
+/*стиль для ячеек таблицы - списка лекарственных средств в разделе "Список лекартсвенных средств" при наведении курсора	*/	
+.td_list_Drugs:hover {background:red;
+					  font-size:17px;
+					  } 
+.td_list_Drugs:visited {background:red;					  
+					  } 
+
