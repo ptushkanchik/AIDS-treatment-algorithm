@@ -1,7 +1,7 @@
 body {background:url("concrete_seamless.png");
 	}
 	
-	                                                  /*  СТИЛИ ДЛЯ элементов появляющихся при запуске программы  */
+	                                                  /*  СТИЛИ ДЛЯ ЭЛЕМЕНТОВ ПОЯВЛЯЮЩИХСЯ ПРИ ЗАПУСКЕ ПРОГРАММЫ  */
 #head     {width:100%;
         word-spacing:15px;
 		text-align:center;
@@ -186,6 +186,62 @@ span {display:table-cell;
 			border-radius:5px
 			}		
 		
+																/*  СТИЛИ ДЛЯ РАЗДЕЛА "ПРОФИЛАКТИКА ВЕРТИКАЛЬНОЙ ПЕРЕДАЧИ"  */
+																
+																
+																
+/*стиль для таблицы ячеек "Профилактика беременным .." и "Ведение родов"*/		
+#table_MenuPVT {border-spacing:40px 15px; 
+				position:absolute;
+				left:55px; 
+				}																
+/*стиль для  ячейки "Профилактика беременным и новорожденным"*/																	
+#td_Pregnant {width:400px;
+			  height:50px; 
+			  border-radius:10px;
+			  text-align:center;
+			  vertical-align:middle;
+			  cursor:pointer; 
+			  box-shadow:10px 8px 20px -1px black;
+			  }																
+																
+/*стиль для  ячейки "Ведение родов"*/																	
+#td_Childbirth {width:200px;
+			    height:50px;
+				border-radius:10px;
+				text-align:center; 
+				vertical-align:middle; 
+				cursor:pointer;
+				box-shadow:10px 8px 20px -1px black;
+			    }																
+/*стиль для  блока "Срок беременности"*/		
+#divNeo	{width:200px;
+		height:40px;
+		border:2px solid black; 
+		border-radius:10px;
+		line-height:40px;
+		text-align:center;
+		background:linear-gradient(to top left, #CD853F , #FFDEAD);
+		box-shadow:10px 8px 20px -1px black; 
+		position:absolute;top:100px;left:30px;
+		}	
+/*стиль для ячеек таблицы ответов на блок "Срок беременности"*/		
+#divNeoTab {position:absolute;
+			top:83px;
+			left:315px;
+			border-spacing:14px;
+			}
+
+#divNeoTab  td {width:100px; 
+		      height:36px;
+			   background:linear-gradient(to top left, #CD853F , #FFDEAD);
+			  border:2px outset;
+			  border-radius:10px; 
+			  line-height:100%;
+			  text-align:center;
+			  box-shadow:10px 8px 20px -1px black;
+			  cursor:pointer
+			 }		
 		
 		
 		
