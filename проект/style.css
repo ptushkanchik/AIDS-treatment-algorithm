@@ -225,13 +225,13 @@ span {display:table-cell;
 		box-shadow:10px 8px 20px -1px black; 
 		position:absolute;top:100px;left:30px;
 		}	
-/*стиль для ячеек таблицы ответов на блок "Срок беременности"*/		
+/*стиль для таблицы ответов на блок "Срок беременности"*/		
 #divNeoTab {position:absolute;
 			top:83px;
 			left:315px;
 			border-spacing:14px;
 			}
-
+/*стиль для ячеек таблицы ответов на блок "Срок беременности"*/
 #divNeoTab  td {width:100px; 
 		      height:36px;
 			   background:linear-gradient(to top left, #CD853F , #FFDEAD);
@@ -243,7 +243,40 @@ span {display:table-cell;
 			  cursor:pointer
 			 }		
 		
-		
+/*стиль для  блока "Принимает ли АРТ?"*/		
+#divART	{width:200px; 
+		height:40px; 
+		border:2px solid black;
+		border-radius:10px;
+		line-height:40px;
+		text-align:center;
+		background:linear-gradient(to top left, #CD853F , #FFDEAD);
+		box-shadow:10px 8px 20px -1px black;
+		position:absolute;
+		top:160px;
+		left:30px;
+		}
+
+/*стиль для ячеек таблицы ответов на блок "Принимает ли АРТ?"*/
+#divARTTab {position:absolute;
+			top:146px;
+			left:315px;
+			border-spacing:14px;}	
+
+/*стиль для ячеек таблицы ответов на блок "Принимает ли АРТ?"*/
+#divARTTab td {width:220px; 
+			height:36px;
+			border:2px outset;
+			border-radius:10px; 
+			line-height:100%;
+			text-align:center;
+			background:linear-gradient(to top left, #CD853F , #FFDEAD);
+			box-shadow:10px 8px 20px -1px black;
+			cursor:pointer
+			}	
+
+
+			
 		
 		
 		                                                           /*  СТИЛИ ДЛЯ РАЗДЕЛА "СПИСОК ЛЕКАРТСВЕННЫХ СРЕДСТВ"  */

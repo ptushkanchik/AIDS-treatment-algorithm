@@ -84,8 +84,8 @@ function showTabPregnant(event){
 				td.addEventListener("click",showExtreme);//вызов функции для профилактики при ВИЧ+, установленном непосредственно в родах
 			}
 		    
-			tr.appendChild(td);
-		}
+		    tr.appendChild(td);
+	    }
 		
 		divNeoTab.appendChild(tr);
 		start_window.appendChild(divNeoTab);
@@ -101,36 +101,31 @@ function showART(event){
 //создать ячейку "Принимает ли АРТ?"
 	var divART = document.createElement("div");
 		divART.id = "divART";
-			divART.style.cssText = "width:200px; height:40px; border:2px solid black; border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;top:160px;left:30px;";
 			divART.innerHTML = "<b>ПРИНИМАЕТ ЛИ АРТ?</b>";
 		start_window.appendChild(divART);
 //создать таблицу вариантов ответа "да/нет"	
 	var divARTTab = document.createElement("table");
 			divARTTab.id = "divARTTab";
 		var tr = document.createElement("tr");
-		var td1, td2;
-		td1 = document.createElement("td");
-			td1.style.cssText = "width:220px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;top:160px;left:330px;cursor:pointer";
-			td1.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for start ART")
-			td1.addEventListener("click",showEfavirenz);
-			td1.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td1.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td1.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td1.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-			td1.innerHTML = "<b>да</b>";
-		tr.appendChild(td1);
 		
-		td2 = document.createElement("td");
-			td2.id = "ART_No";
-			td2.style.cssText = "width:220px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;top:160px;left:570px;cursor:pointer";
-			td2.innerHTML = "<b>нет</b>";
-			td2.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
-			td2.addEventListener("click",showCD4);
-			td2.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td2.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td2.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td2.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-		tr.appendChild(td2);
+		var arr = ["<b>да</b>","<b>нет</b>"];
+		for(var i=0;i<2;i++){
+			var td = document.createElement("td");
+				td.innerHTML = arr[i];
+				td.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for start ART")
+				td.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
+				td.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = ""; }});
+				td.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
+				td.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "";});
+				
+				if(i==0){
+					td.addEventListener("click",showEfavirenz);
+				}else{
+					td.addEventListener("click",showCD4);
+					td.id = "ART_No"; //назначить отдельный идентификатор на ячейку "нет" в таблице ответов на блок "Принимает ли АРТ?"
+				}
+			tr.appendChild(td);
+		}
 		divARTTab.appendChild(tr);
 		start_window.appendChild(divARTTab);
 }
