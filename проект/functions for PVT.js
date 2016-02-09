@@ -109,7 +109,7 @@ function showTabPregnant(event){
 function showART(event){
 //удалить нижележащие элементы 
 	while(divNeoTab.nextSibling){
-		divNeoTab.nextSibling.remove();
+		start_window.removeChild(divNeoTab.nextSibling);
 		}
 	start_window.style.height = "563px";
 //создать ячейку "Принимает ли АРТ?"
@@ -148,7 +148,7 @@ function showART(event){
 function showEfavirenz(event){
 //если есть нижележащие элементы - удалить их
 	while(divARTTab.nextSibling){
-		divARTTab.nextSibling.remove();
+		start_window.removeChild(divARTTab.nextSibling);
 		}
 //вернуть размер окна к исходному
 	start_window.style.height = "563px";
@@ -166,8 +166,7 @@ function showEfavirenz(event){
 		var arr = ["<b>да</b>","<b>нет</b>"];
 		
 		for(var i=0;i<2;i++){
-			var td = document.createElement("td");
-			
+			var td = document.createElement("td");			
 				td.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
 				td.addEventListener("click",showCD4);
 				td.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
@@ -187,16 +186,16 @@ function showCD4(event){
 //если клик на ячейке "нет" в графе "Принимает ли АРТ?" - выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли АРТ?"
 	if(event.currentTarget.id == "ART_No"){
 		while(divARTTab.nextSibling){
-		divARTTab.nextSibling.remove();
+			start_window.removeChild(divARTTab.nextSibling);
 		}
 		start_window.style.height = "563px";
 		var divCD4 = document.createElement("div");
 		divCD4.id = "divCD4";
 			divCD4.style.cssText = "position:absolute;top:220px;left:30px;";
 			divCD4.innerHTML = "<b>УРОВЕНЬ СД-4 КЛЕТОК</b>";
-		}else{//если клик на ячейках "да/нет" в графе "Принимает ли эфавиренц?" - выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли эфавиренц?"
+	}else{//если клик на ячейках "да/нет" в графе "Принимает ли эфавиренц?" - выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли эфавиренц?"
 			while(divEfTab.nextSibling){
-				divEfTab.nextSibling.remove();
+				start_window.removeChild(divEfTab.nextSibling);
 			}
 			var divCD4 = document.createElement("div");
 				divCD4.id = "divCD4";
@@ -277,7 +276,7 @@ function showVirusWeight(event){
 //если присутствует графа "Принимает ли эфавиренц"
 	if(document.getElementById("divEf")){
 		while(divCD4Tab.nextSibling){
-		divCD4Tab.nextSibling.remove();
+			start_window.removeChild(divCD4Tab.nextSibling);
 			}
 	
 		var divVirus = document.createElement("div");
@@ -286,7 +285,7 @@ function showVirusWeight(event){
 			divVirus.innerHTML = "<b>ВИРУСНАЯ НАГРУЗКА</b>";
 		}else{//если отсутствует графа "Принимает ли эфавиренц"
 			while(divCD4Tab.nextSibling){
-				divCD4Tab.nextSibling.remove();
+				start_window.removeChild(divCD4Tab.nextSibling);
 				}
 			var divVirus = document.createElement("div");
 				divVirus.id = "divCD4";
@@ -340,7 +339,7 @@ function showAnemia(event){
 //если присутствует графа "Принимает ли эфавиренц"
 	if(document.getElementById("divEf")){
 		while(divVirusTab.nextSibling){
-		divVirusTab.nextSibling.remove();
+		     start_window.removeChild(divVirusTab.nextSibling);
 			}
 		var divAnemia = document.createElement("div");
 		divAnemia.id = "divAnemia";
@@ -348,7 +347,7 @@ function showAnemia(event){
 			divAnemia.innerHTML = "<b>УРОВЕНЬ ГЕМОГЛОБИНА</b>";
 		}else{//если отсутствует графа "Принимает ли эфавиренц"
 			while(divVirusTab.nextSibling){
-				divVirusTab.nextSibling.remove();
+				start_window.removeChild(divVirusTab.nextSibling);
 				
 				}
 			var divAnemia = document.createElement("div");
