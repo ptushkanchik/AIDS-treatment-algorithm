@@ -185,89 +185,56 @@ function showEfavirenz(event){
 function showCD4(event){
 //если клик на ячейке "нет" в графе "Принимает ли АРТ?" - выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли АРТ?"
 	if(event.currentTarget.id == "ART_No"){
+		//если есть элементы ниже -удалить их
 		while(divARTTab.nextSibling){
 			start_window.removeChild(divARTTab.nextSibling);
 		}
+		// возвратить размер окна к исходному
 		start_window.style.height = "563px";
+		//создать блок "Уровень СД4-клеток"
 		var divCD4 = document.createElement("div");
-		divCD4.id = "divCD4";
+			divCD4.id = "divCD4";
 			divCD4.style.cssText = "position:absolute;top:220px;left:30px;";
 			divCD4.innerHTML = "<b>УРОВЕНЬ СД-4 КЛЕТОК</b>";
 	}else{//если клик на ячейках "да/нет" в графе "Принимает ли эфавиренц?" - выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли эфавиренц?"
+		//если есть элементы ниже -удалить их	
 			while(divEfTab.nextSibling){
 				start_window.removeChild(divEfTab.nextSibling);
 			}
+		//создать блок "Уровень СД4-клеток"	
 			var divCD4 = document.createElement("div");
 				divCD4.id = "divCD4";
 				divCD4.style.cssText = " position:absolute;top:280px;left:30px;";
 				divCD4.innerHTML = "<b>УРОВЕНЬ СД-4 КЛЕТОК</b>";
 		}
 		
-		divCD4.style.cssText += "width:200px; height:40px; border:2px solid black; border-radius:10px;line-height:40px; text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black;";
 		start_window.appendChild(divCD4);
-		
+	//создать таблицу выбора уровня СД4-клеток	
 	var divCD4Tab =document.createElement("table");
 			divCD4Tab.id = "divCD4Tab";
 		var tr = document.createElement("tr");
 		
-		var td1, td2, td3, td4;
-		td1 = document.createElement("td");
-			td1.style.cssText = "width:100px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;left:330px;cursor:pointer";
-			
-			td1.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
-			td1.innerHTML = "<b>>350 кл</b>";
-			td1.addEventListener("click",showVirusWeight);
-			td1.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td1.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td1.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td1.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-		tr.appendChild(td1);
+		var arr = ["<b>>350 кл</b>","<b>200-350 кл</b>","<b><200кл</b>","<b>неизвестно</b>"];
+		for(var i=0;i<4;i++){
+			var td = document.createElement("td");
+				td.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for start ART")
+				td.innerHTML = arr[i];
+				td.addEventListener("click",showVirusWeight);
+				td.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
+				td.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = ""; }});
+				td.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
+				td.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "";});
+			tr.appendChild(td);
+		}
 		
-		td2 = document.createElement("td");
-			td2.style.cssText = "width:100px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;left:450px;cursor:pointer";
-			td2.innerHTML = "<b>200-350 кл</b>";
-			td2.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for start ART")
-			td2.addEventListener("click",showVirusWeight);
-			td2.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td2.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td2.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td2.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-		tr.appendChild(td2);
-		
-		td3 = document.createElement("td");
-			td3.style.cssText = "width:100px; height:36px;border:2px outset;border-radius:10px; text-align:center;line-height:40px; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;left:570px;cursor:pointer";
-			td3.innerHTML = "<b><200кл</b>";
-			td3.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for start ART")
-			td3.addEventListener("click",showVirusWeight);
-			td3.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td3.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td3.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td3.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-		tr.appendChild(td3);
-		
-		td4 = document.createElement("td");
-			td4.style.cssText = "width:100px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;left:690px;cursor:pointer";
-			td4.innerHTML = "<b>неизвестно</b>";
-			td4.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
-			td4.addEventListener("click",showVirusWeight);
-			td4.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td4.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td4.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td4.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-		tr.appendChild(td4);
+		divCD4Tab.appendChild(tr);
 		
 		if(event.currentTarget.id == "ART_No"){//если клик на ячейке "нет" в графе "Принимает ли АРТ?"
-			td1.style.cssText +="top: 220px";
-			td2.style.cssText +="top: 220px";
-			td3.style.cssText +="top: 220px";
-			td4.style.cssText +="top: 220px";
+			divCD4Tab.style.top = " 205px";
 		}else{//если клик на ячейках "да/нет" в графе "Принимает ли эфавиренц?"
-			td1.style.cssText +="top: 280px";
-			td2.style.cssText +="top: 280px";
-			td3.style.cssText +="top: 280px";
-			td4.style.cssText +="top: 280px";
-			}
-		divCD4Tab.appendChild(tr);
+			divCD4Tab.style.top = " 265px";
+		}
+		
 		start_window.appendChild(divCD4Tab);
 }
 
