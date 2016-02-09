@@ -261,7 +261,7 @@ span {display:table-cell;
 		left:30px;
 		}
 
-/*стиль для ячеек таблицы ответов на блок "Принимает ли АРТ?"*/
+/*стиль для  таблицы ответов на блок "Принимает ли АРТ?"*/
 #divARTTab {position:absolute;
 			top:146px;
 			left:315px;
@@ -278,6 +278,37 @@ span {display:table-cell;
 			box-shadow:10px 8px 20px -1px black;
 			cursor:pointer
 			}	
+/*стиль для  блока "Принимает ли эфавиренц?"*/			
+#divEf {width:200px;
+		height:40px;
+		border:2px solid black;
+		border-radius:10px;
+		line-height:20px;
+		text-align:center;
+		background:linear-gradient(to top left, #CD853F , #FFDEAD);
+		box-shadow:10px 8px 20px -1px black;
+		position:absolute;
+		top:220px;
+		left:30px;
+		}
+		
+/*стиль для  таблицы ответов на блок "Принимает ли эфавиренц?"*/		
+#divEfTab {position:absolute;
+			top:207px;
+			left:315px;
+			border-spacing:14px;}
+			
+/*стиль для ячеек таблицы ответов на блок "Принимает ли эфавиренц?"*/
+#divEfTab td {width:220px; 
+			height:35px;
+			border:2px outset;
+			border-radius:10px; 
+			vertical-align:middle;
+			text-align:center; 
+			background:linear-gradient(to top left, #CD853F , #FFDEAD);
+			box-shadow:10px 8px 20px -1px black;
+			cursor:pointer
+			}
 
 
 			

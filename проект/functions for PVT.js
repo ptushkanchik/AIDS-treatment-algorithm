@@ -146,46 +146,40 @@ function showART(event){
 
 //функция выводит ячейки графы "Принимает ли эфавиренц"
 function showEfavirenz(event){
+//если есть нижележащие элементы - удалить их
 	while(divARTTab.nextSibling){
 		divARTTab.nextSibling.remove();
 		}
+//вернуть размер окна к исходному
 	start_window.style.height = "563px";
+//создать блок "Принимает ли эфавиренц?"
 	var divEf = document.createElement("div");
 		divEf.id = "divEf";
-			divEf.style.cssText = "width:200px; height:40px; border:2px solid black; border-radius:10px; text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;top:220px;left:30px;";
-			divEf.innerHTML = "<b>ПРИНИМАЕТ ЛИ ЭФАВИРЕНЦ?</b>";
+		divEf.innerHTML = "<b>ПРИНИМАЕТ ЛИ ЭФАВИРЕНЦ?</b>";
 		start_window.appendChild(divEf);	
-		
+//cоздать таблицу выбора ответов "да/нет"		
 	var divEfTab = document.createElement("table");
 			divEfTab.id = "divEfTab";
-		var tr = document.createElement("tr");
-		var td1, td2;
-		td1 = document.createElement("td");
-			td1.style.cssText = "width:220px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;top:220px;left:330px;cursor:pointer";
-			td1.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
-			td1.addEventListener("click",showCD4);
-			td1.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td1.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td1.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td1.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-			td1.innerHTML = "<b>да</b>";
-		tr.appendChild(td1);
 		
-		td2 = document.createElement("td");
-			td2.style.cssText = "width:220px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;top:220px;left:570px;cursor:pointer";
-			td2.innerHTML = "<b>нет</b>";
-			td2.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
-			td2.addEventListener("click",showCD4);
-			td2.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td2.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td2.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td2.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-		tr.appendChild(td2);
+		var tr = document.createElement("tr");
+		
+		var arr = ["<b>да</b>","<b>нет</b>"];
+		
+		for(var i=0;i<2;i++){
+			var td = document.createElement("td");
+			
+				td.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
+				td.addEventListener("click",showCD4);
+				td.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
+				td.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = ""; }});
+				td.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
+				td.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "";});
+				td.innerHTML = arr[i];
+		tr.appendChild(td);
+		}
 		
 		divEfTab.appendChild(tr);
 		start_window.appendChild(divEfTab);	
-		
-		
 }
 
 //функция выводит ячейки графы "Уровень СД4-клеток"
