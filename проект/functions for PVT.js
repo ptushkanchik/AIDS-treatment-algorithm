@@ -2,7 +2,7 @@
 function appendMenuPVT(){
 //если в стартовом окне что-то есть - очистить стартовое окно
 	while(start_window.children.length){
-		start_window.removeChild(start_window.firstChild);
+		start_window.firstChild.remove();
 		}
 //вернуть размер окна к первоначальному
 	start_window.style.height = "563px";	
@@ -48,24 +48,11 @@ function appendMenuPVT(){
 }
 		
 		
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
 //функция выводит ячейки графы "Срок беременности"
 function showTabPregnant(event){
 //удалить все элементы ниже ячеек "Профилактика беременным и новорожденным" и "Ведение родов" если они есть	
 	while(start_window.children.length!=1){
-				start_window.removeChild(start_window.lastChild);
+				start_window.lastChild.remove();
 				}
 	start_window.style.height = "563px";
 	td_Pregnant.style.background = "red";//закрасить ячейку красным
@@ -78,11 +65,11 @@ function showTabPregnant(event){
 	//создание ячеек графы "Срок беременности"	
 	var divNeoTab =document.createElement("table");
 			divNeoTab.id = "divNeoTab";
-			divNeoTab.style.cssText= "";
+		
 		var tr = document.createElement("tr");
-		
-		
+			
 		var arr = ["<b>0 - 8 недель</b>","<b>8 - 24 недель</b>","<b>24 и больше недель</b>","<b>роды в ходу</b>"];
+		
 		for(var i=0;i<4;i++){
 			var td = document.createElement("td");
 			td.innerHTML = arr[i];
@@ -109,7 +96,7 @@ function showTabPregnant(event){
 function showART(event){
 //удалить нижележащие элементы 
 	while(divNeoTab.nextSibling){
-		start_window.removeChild(divNeoTab.nextSibling);
+			divNeoTab.nextSibling.remove();
 		}
 	start_window.style.height = "563px";
 //создать ячейку "Принимает ли АРТ?"
@@ -120,6 +107,7 @@ function showART(event){
 //создать таблицу вариантов ответа "да/нет"	
 	var divARTTab = document.createElement("table");
 			divARTTab.id = "divARTTab";
+		
 		var tr = document.createElement("tr");
 		
 		var arr = ["<b>да</b>","<b>нет</b>"];
@@ -148,7 +136,7 @@ function showART(event){
 function showEfavirenz(event){
 //если есть нижележащие элементы - удалить их
 	while(divARTTab.nextSibling){
-		start_window.removeChild(divARTTab.nextSibling);
+		divARTTab.nextSibling.remove();
 		}
 //вернуть размер окна к исходному
 	start_window.style.height = "563px";
@@ -187,24 +175,23 @@ function showCD4(event){
 	if(event.currentTarget.id == "ART_No"){
 		//если есть элементы ниже -удалить их
 		while(divARTTab.nextSibling){
-			start_window.removeChild(divARTTab.nextSibling);
+			divARTTab.nextSibling.remove();
 		}
 		// возвратить размер окна к исходному
 		start_window.style.height = "563px";
 		//создать блок "Уровень СД4-клеток"
 		var divCD4 = document.createElement("div");
 			divCD4.id = "divCD4";
-			divCD4.style.cssText = "position:absolute;top:220px;left:30px;";
 			divCD4.innerHTML = "<b>УРОВЕНЬ СД-4 КЛЕТОК</b>";
 	}else{//если клик на ячейках "да/нет" в графе "Принимает ли эфавиренц?" - выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли эфавиренц?"
 		//если есть элементы ниже -удалить их	
 			while(divEfTab.nextSibling){
-				start_window.removeChild(divEfTab.nextSibling);
+				divEfTab.nextSibling.remove();
 			}
 		//создать блок "Уровень СД4-клеток"	
 			var divCD4 = document.createElement("div");
 				divCD4.id = "divCD4";
-				divCD4.style.cssText = " position:absolute;top:280px;left:30px;";
+				divCD4.style.top = " 280px";
 				divCD4.innerHTML = "<b>УРОВЕНЬ СД-4 КЛЕТОК</b>";
 		}
 		
@@ -229,9 +216,7 @@ function showCD4(event){
 		
 		divCD4Tab.appendChild(tr);
 		
-		if(event.currentTarget.id == "ART_No"){//если клик на ячейке "нет" в графе "Принимает ли АРТ?"
-			divCD4Tab.style.top = " 205px";
-		}else{//если клик на ячейках "да/нет" в графе "Принимает ли эфавиренц?"
+		if(event.currentTarget.id != "ART_No"){//если клик на ячейке "да" в графе "Принимает ли АРТ?"
 			divCD4Tab.style.top = " 265px";
 		}
 		
@@ -243,7 +228,7 @@ function showVirusWeight(event){
 //если присутствует графа "Принимает ли эфавиренц"
 	if(document.getElementById("divEf")){
 		while(divCD4Tab.nextSibling){
-			start_window.removeChild(divCD4Tab.nextSibling);
+			divCD4Tab.nextSibling.remove();
 			}
 	
 		var divVirus = document.createElement("div");
@@ -252,7 +237,7 @@ function showVirusWeight(event){
 			divVirus.innerHTML = "<b>ВИРУСНАЯ НАГРУЗКА</b>";
 		}else{//если отсутствует графа "Принимает ли эфавиренц"
 			while(divCD4Tab.nextSibling){
-				start_window.removeChild(divCD4Tab.nextSibling);
+				divCD4Tab.nextSibling.remove();
 				}
 			var divVirus = document.createElement("div");
 				divVirus.id = "divCD4";
@@ -306,7 +291,7 @@ function showAnemia(event){
 //если присутствует графа "Принимает ли эфавиренц"
 	if(document.getElementById("divEf")){
 		while(divVirusTab.nextSibling){
-		     start_window.removeChild(divVirusTab.nextSibling);
+		     divVirusTab.nextSibling.remove();
 			}
 		var divAnemia = document.createElement("div");
 		divAnemia.id = "divAnemia";
@@ -314,7 +299,7 @@ function showAnemia(event){
 			divAnemia.innerHTML = "<b>УРОВЕНЬ ГЕМОГЛОБИНА</b>";
 		}else{//если отсутствует графа "Принимает ли эфавиренц"
 			while(divVirusTab.nextSibling){
-				start_window.removeChild(divVirusTab.nextSibling);
+				divVirusTab.nextSibling.remove();
 				
 				}
 			var divAnemia = document.createElement("div");
@@ -369,7 +354,7 @@ function showAnemia(event){
 function showResultPregnant(event){
 //если есть что-то ниже ячеек "Уровень гемоглобина"/"<110г/л"/">110г/л" - удалить 
 	while(divAnemiaTab.nextSibling){
-		start_window.removeChild(divAnemiaTab.nextSibling);
+		divAnemiaTab.nextSibling.remove();
 			}
 //если нет окна вывода информации - создать его	
 	if(!document.getElementById("divResPreg")){	
@@ -495,7 +480,7 @@ function showExtreme(event){
 	
 //удалить все что находится ниже графы "Срок беременности"
 	while(divNeoTab.nextSibling){
-		start_window.removeChild(divNeoTab.nextSibling);
+		divNeoTab.nextSibling.remove();
 	}
 	start_window.style.height = "563px";
 	var divResPreg = document.createElement("div");
@@ -535,7 +520,7 @@ function showExtreme(event){
 function showTabChildbirth(event){
 	//удалить все элементы ниже ячеек "Профилактика беременным и новорожденным" и "Ведение родов" если они есть	
 	while(start_window.children.length!=1){
-				start_window.removeChild(start_window.lastChild);
+				start_window.lastChild.remove();
 				}
 	start_window.style.height = "563px";//вернуть размер окна к исходному
 	td_Childbirth.style.background = "red";//закрасить ячейку красным
@@ -599,28 +584,28 @@ function showChildbirth(event){
 	
 	if(event.currentTarget==childbirthTab.children[0].children[0]){
 		while(start_window.children.length!=1){//удалить все ниже ячеек "Профилактика беременным и новорожденным" и "Ведение родов"
-				start_window.removeChild(start_window.lastChild);
+				start_window.lastChild.remove();
 				}
 		start_window.appendChild(divShowChildbirth);
 		calculateChildbirth(0);//вызвать функцию загрузки текста информации о ведении родов в окно divShowChildbirth
 	}
 	if(event.currentTarget==childbirthTab.children[0].children[1]){
 		while(start_window.children.length!=1){//удалить все ниже ячеек "Профилактика беременным и новорожденным" и "Ведение родов"
-				start_window.removeChild(start_window.lastChild);
+				start_window.lastChild.remove();
 				}
 		start_window.appendChild(divShowChildbirth);
 		calculateChildbirth(1);//вызвать функцию загрузки текста информации о ведении родов в окно divShowChildbirth
 	}
 	if(event.currentTarget==childbirthTab.children[1].children[0]){
 		while(start_window.children.length!=1){//удалить все ниже ячеек "Профилактика беременным и новорожденным" и "Ведение родов"
-				start_window.removeChild(start_window.lastChild);
+				start_window.lastChild.remove();
 				}
 		start_window.appendChild(divShowChildbirth);
 		calculateChildbirth(2);//вызвать функцию загрузки текста информации о ведении родов в окно divShowChildbirth
 	}
 	if(event.currentTarget==childbirthTab.children[1].children[1]){
 		while(start_window.children.length!=1){//удалить все ниже ячеек "Профилактика беременным и новорожденным" и "Ведение родов"
-				start_window.removeChild(start_window.lastChild);
+				start_window.lastChild.remove();
 				}
 		start_window.appendChild(divShowChildbirth);		
 		calculateChildbirth(3);//вызвать функцию загрузки текста информации о ведении родов в окно divShowChildbirth
@@ -641,8 +626,8 @@ function calculateChildbirth(arg){
 	input.value = "Назад";
 	input.style.cssText="cursor:pointer;opacity:0; border-radius:5px; position:absolute;top:110px;left:50px";
 	input.onclick = function(){
-		start_window.removeChild(divShowChildbirth);//удалить окно вывода информации о ведении родов
-		start_window.removeChild(input);
+		divShowChildbirth.remove();//удалить окно вывода информации о ведении родов
+		input.remove();
 		showTabChildbirth();//загрузить таблицу "Ведение родов"
 		};
 	
