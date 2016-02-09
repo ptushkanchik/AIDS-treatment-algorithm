@@ -6,37 +6,37 @@ function appendMenuPVT(){
 		}
 //вернуть размер окна к первоначальному
 	start_window.style.height = "563px";	
-		
+	
+	var arr = ["<b>ПРОФИЛАКТИКА БЕРЕМЕННЫМ И НОВОРОЖДЕННЫМ</b>","<b>ВЕДЕНИЕ РОДОВ</b>"];
+	
 	var table_Menu = document.createElement("table");
 		table_Menu.id = "table_MenuPVT";
 		table_Menu.style.cssText = "opacity:0";
-	var tr_Menu = document.createElement("tr");
-	var td_Pregnant = document.createElement("td");
-		td_Pregnant.id = "td_Pregnant";
-		td_Pregnant.style.cssText = "border:4px outset; background:linear-gradient(to top left, #CD853F , #FFDEAD);";
-		td_Pregnant.innerHTML = "<b>ПРОФИЛАКТИКА БЕРЕМЕННЫМ И НОВОРОЖДЕННЫМ</b>";
-		td_Pregnant.onclick = showTabPregnant;//показать таблицу для выбора вариантов вводных данных о беременной
-		td_Pregnant.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-		td_Pregnant.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-		td_Pregnant.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "4px inset";});
-		td_Pregnant.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "4px outset";});
-	var td_Childbirth = document.createElement("td");
-		td_Childbirth.id = "td_Childbirth";
-		td_Childbirth.style.cssText = " border:4px outset; background:linear-gradient(to top left, #CD853F , #FFDEAD);";
-		td_Childbirth.innerHTML = "<b>ВЕДЕНИЕ РОДОВ</b>";
-		td_Childbirth.onclick = showTabChildbirth;//показать таблицу для ведения родов
-		td_Childbirth.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-		td_Childbirth.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-		td_Childbirth.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "4px inset";});
-		td_Childbirth.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "4px outset";});
+	var tr = document.createElement("tr");
+	for(var i=0;i<2;i++){
+		var td= document.createElement("td");
+		td.innerHTML = arr[i];
+		td.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
+		td.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = ""; }});
+		td.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "4px inset";});
+		td.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "";});
+		
+		if(i==0){
+			td.id = "td_Pregnant";
+			td.onclick = showTabPregnant;//показать таблицу для выбора вариантов вводных данных о беременной
+		}else{
+			td.id = "td_Childbirth";
+			td.onclick = showTabChildbirth;//показать таблицу для ведения родов
+		}
+		
+		tr.appendChild(td);
+	}
 	
-	tr_Menu.appendChild(td_Pregnant);
-	tr_Menu.appendChild(td_Childbirth);
+	table_Menu.appendChild(tr);
 	
-	
-	table_Menu.appendChild(tr_Menu);
-	start_window.appendChild(table_Menu);
-	
+	start_window.appendChild(table_Menu);	
+
+//плавное появление таблицы table_Menu	
 	var x = setTimeout(function X(){
 		if(table_Menu.style.opacity!=1){
 			table_Menu.style.opacity = parseFloat(table_Menu.style.opacity)+0.05+"";
@@ -46,6 +46,20 @@ function appendMenuPVT(){
 		}
 	},100);	
 }
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 
 //функция выводит ячейки графы "Срок беременности"
 function showTabPregnant(event){

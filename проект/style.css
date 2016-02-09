@@ -198,21 +198,25 @@ span {display:table-cell;
 /*стиль для  ячейки "Профилактика беременным и новорожденным"*/																	
 #td_Pregnant {width:400px;
 			  height:50px; 
+			  border:4px outset;
 			  border-radius:10px;
 			  text-align:center;
 			  vertical-align:middle;
 			  cursor:pointer; 
-			  box-shadow:10px 8px 20px -1px black;
+			  box-shadow:10px 8px 20px -1px black;			  
+			  background:linear-gradient(to top left, #CD853F , #FFDEAD);
 			  }																
 																
 /*стиль для  ячейки "Ведение родов"*/																	
 #td_Childbirth {width:200px;
 			    height:50px;
+				 border:4px outset;
 				border-radius:10px;
 				text-align:center; 
 				vertical-align:middle; 
 				cursor:pointer;
 				box-shadow:10px 8px 20px -1px black;
+				 background:linear-gradient(to top left, #CD853F , #FFDEAD);
 			    }																
 /*стиль для  блока "Срок беременности"*/		
 #divNeo	{width:200px;
