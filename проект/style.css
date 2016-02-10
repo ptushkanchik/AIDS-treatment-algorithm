@@ -354,6 +354,7 @@ span {display:table-cell;
 		   background:linear-gradient(to top left, #CD853F , #FFDEAD);
 		   box-shadow:10px 8px 20px -1px black;
 		   position:absolute;
+		   top:280px;
 		   left:30px;
 		   }
 		   
@@ -373,11 +374,81 @@ span {display:table-cell;
 				background:linear-gradient(to top left, #CD853F , #FFDEAD); 
 				box-shadow:10px 8px 20px -1px black;
 				cursor:pointer;
-			   }		
+			   }
 
+/*стиль для  блока "Уровень гемоглобина"*/			   
+#divAnemia {width:200px;
+		   height:40px;
+		   border:2px solid black;
+		   border-radius:10px;
+		   line-height:20px;
+		   text-align:center; 
+		   background:linear-gradient(to top left, #CD853F , #FFDEAD);
+		   box-shadow:10px 8px 20px -1px black;
+		   position:absolute;
+		   top:340px;
+		   left:30px;
+		   }
+/*стиль для  таблицы ответов на блок "Уровень гемоглобина"*/		   
+#divAnemiaTab {position:absolute;
+				top:327px;
+				left:315px;
+				border-spacing:14px;
+				}
+/*стиль для ячеек таблицы ответов на блок "Уровень гемоглобина"*/		
+#divAnemiaTab td {width:220px;
+				height:35px;
+				border:2px outset;
+				border-radius:10px;
+				vertical-align:middle;
+				text-align:center;
+				background:linear-gradient(to top left, #CD853F , #FFDEAD); 
+				box-shadow:10px 8px 20px -1px black;
+				cursor:pointer;
+			   }
+			   
+/*стиль для окна вывода результата подбора курса профилактики*/			   
+#divResPreg {padding:5px;
+			background:white;
+			border:2px solid;
+			border-radius:10px;
+			overflow:auto;
+			position:absolute;
+			top:460px;
+			box-shadow:10px 8px 20px -1px black;
+			opacity:1;
+			}
 
-
-
+/*стиль для таблицы выбора сценария ведения родов*/			
+#childbirthTab {border-spacing:60px;
+				position:absolute;
+				top: 90px; 
+				left:110px;
+				}
+/*стиль для ячеек таблицы выбора сценария ведения родов*/					
+#childbirthTab td {width:220px;
+				 height:110px;
+				 background:white;
+				 padding:10px;
+				 border:4px outset;
+				 border-radius:10px;
+				 text-align:center;
+				 vertical-align:middle;
+				 background:linear-gradient(to top left, #CD853F , #FFDEAD);
+				 box-shadow:10px 8px 20px -1px black; 
+				 cursor:pointer;
+				}
+				
+#divShowChildbirth {padding:5px;
+					background:white; 
+					border:2px solid;
+					border-radius:10px;
+					overflow:auto;
+					position:absolute;
+					top:100px;
+					box-shadow:10px 8px 20px -1px black;
+					opacity:1;
+					}
 
 
 
