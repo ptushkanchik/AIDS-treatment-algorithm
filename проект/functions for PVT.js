@@ -526,7 +526,7 @@ function showChildbirth(event){
 		divShowChildbirth.id = "divShowChildbirth";
 		divShowChildbirth.style.cssText = "width:0px; height:3px;left:420px;";
 		
-//растягивается в ширину		
+ //растягивается в ширину		
 		var x = setTimeout(function X(){
 				if(divShowChildbirth.style.width!=="740px"){
 					divShowChildbirth.style.width = parseInt(divShowChildbirth.style.width)+74+"px";
