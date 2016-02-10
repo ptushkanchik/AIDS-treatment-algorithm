@@ -171,32 +171,32 @@ function showEfavirenz(event){
 
 //функция выводит ячейки графы "Уровень СД4-клеток"
 function showCD4(event){
-//если клик на ячейке "нет" в графе "Принимает ли АРТ?" - выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли АРТ?"
+//создать блок "Уровень СД4-клеток"
+	var divCD4 = document.createElement("div");
+		divCD4.id = "divCD4";
+		divCD4.innerHTML = "<b>УРОВЕНЬ СД-4 КЛЕТОК</b>";
+
+//если клик на ячейке "нет" в графе "Принимает ли АРТ?"
 	if(event.currentTarget.id == "ART_No"){
-		//если есть элементы ниже -удалить их
+		//если есть элементы ниже divARTTab -удалить их
 		while(divARTTab.nextSibling){
 			divARTTab.nextSibling.remove();
 		}
 		// возвратить размер окна к исходному
 		start_window.style.height = "563px";
-		//создать блок "Уровень СД4-клеток"
-		var divCD4 = document.createElement("div");
-			divCD4.id = "divCD4";
-			divCD4.innerHTML = "<b>УРОВЕНЬ СД-4 КЛЕТОК</b>";
-	}else{//если клик на ячейках "да/нет" в графе "Принимает ли эфавиренц?" - выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли эфавиренц?"
-		//если есть элементы ниже -удалить их	
+				
+	}else{//если клик на ячейках "да/нет" в графе "Принимает ли эфавиренц?" 
+		//если есть элементы ниже divEfTab -удалить их	
 			while(divEfTab.nextSibling){
 				divEfTab.nextSibling.remove();
 			}
-		//создать блок "Уровень СД4-клеток"	
-			var divCD4 = document.createElement("div");
-				divCD4.id = "divCD4";
-				divCD4.style.top = " 280px";
-				divCD4.innerHTML = "<b>УРОВЕНЬ СД-4 КЛЕТОК</b>";
+		// выводить ячейку "Уровень СД4 клеток" под ячейкой "Принимает ли эфавиренц?"
+			divCD4.style.top = " 280px";				
 		}
 		
 		start_window.appendChild(divCD4);
-	//создать таблицу выбора уровня СД4-клеток	
+
+//создать таблицу выбора уровня СД4-клеток	
 	var divCD4Tab =document.createElement("table");
 			divCD4Tab.id = "divCD4Tab";
 		var tr = document.createElement("tr");
@@ -217,72 +217,56 @@ function showCD4(event){
 		divCD4Tab.appendChild(tr);
 		
 		if(event.currentTarget.id != "ART_No"){//если клик на ячейке "да" в графе "Принимает ли АРТ?"
-			divCD4Tab.style.top = " 265px";
-		}
+			divCD4Tab.style.top = " 267px";
+			}
 		
 		start_window.appendChild(divCD4Tab);
 }
 
 //функция выводит ячейки графы "Вирусная нагрузка"
 function showVirusWeight(event){
-//если присутствует графа "Принимает ли эфавиренц"
-	if(document.getElementById("divEf")){
-		while(divCD4Tab.nextSibling){
-			divCD4Tab.nextSibling.remove();
-			}
-	
-		var divVirus = document.createElement("div");
+	var divVirus = document.createElement("div");
 		divVirus.id = "divVirus";
-			divVirus.style.cssText = "position:absolute;top:340px;left:30px;";
-			divVirus.innerHTML = "<b>ВИРУСНАЯ НАГРУЗКА</b>";
-		}else{//если отсутствует графа "Принимает ли эфавиренц"
-			while(divCD4Tab.nextSibling){
-				divCD4Tab.nextSibling.remove();
-				}
-			var divVirus = document.createElement("div");
-				divVirus.id = "divCD4";
-				divVirus.style.cssText = " position:absolute;top:280px;left:30px;";
-				divVirus.innerHTML = "<b>ВИРУСНАЯ НАГРУЗКА</b>";
+		divVirus.innerHTML = "<b>ВИРУСНАЯ НАГРУЗКА</b>";
+//если есть элементы ниже divCD4Tab - удалить их	
+	while(divCD4Tab.nextSibling){
+		divCD4Tab.nextSibling.remove();
 		}
+//если присутствует графа "Принимает ли эфавиренц" 
+	if(document.getElementById("divEf")){		
+		divVirus.style.cssText = "top:340px;";
+	}else{//если отсутствует графа "Принимает ли эфавиренц"
+		divVirus.style.cssText = " top:280px;";				
+		}
+	// возвратить размер окна к исходному	
 		start_window.style.height = "563px";
-		divVirus.style.cssText += "width:200px; height:40px; border:2px solid black; border-radius:10px;line-height:40px; text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black;";
+		
 		start_window.appendChild(divVirus);
+	
+	var arr = ["<b><10000 копий</b>","<b>>10000 копий или неивестно</b>"];
+	
+	var divVirusTab = document.createElement("table");
+		divVirusTab.id = "divVirusTab";
+	var tr = document.createElement("tr");
+	
+	for(var i=0;i<2;i++){
+		var td = document.createElement("td");
+			td.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
+			td.addEventListener("click",showAnemia);
+			td.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
+			td.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = ""; }});
+			td.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
+		    td.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "";});
+			td.innerHTML = arr[i];
 		
-		var divVirusTab = document.createElement("table");
-			divVirusTab.id = "divVirusTab";
-		var tr = document.createElement("tr");
-		var td1, td2;
-		td1 = document.createElement("td");
-			td1.style.cssText = "width:220px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;left:330px;cursor:pointer";
-			td1.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
-			td1.addEventListener("click",showAnemia);
-			td1.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td1.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td1.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td1.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-			td1.innerHTML = "<b><10000 копий</b>";
-		tr.appendChild(td1);
-		
-		td2 = document.createElement("td");
-			td2.style.cssText = "width:220px; height:36px;border:2px outset;border-radius:10px; line-height:40px;text-align:center; background:linear-gradient(to top left, #CD853F , #FFDEAD); box-shadow:10px 8px 20px -1px black; position:absolute;left:570px;cursor:pointer";
-			td2.innerHTML = "<b>>10000 копий или неивестно</b>";
-			td2.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
-			td2.addEventListener("click",showAnemia);
-			td2.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
-			td2.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = "linear-gradient(to top left, #CD853F , #FFDEAD)"; }});
-			td2.addEventListener("mousedown",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px inset";});
-		    td2.addEventListener("mouseup",function(){ if(this.style.backgroundColor!="red")this.style.border = "2px outset";});
-		tr.appendChild(td2);
+		tr.appendChild(td);
+	}	
+		divVirusTab.appendChild(tr);
 		
 		if(document.getElementById("divEf")){//если присутствует графа "Принимает ли эфавиренц"
-			td1.style.cssText +="top: 340px";
-			td2.style.cssText +="top: 340px";
-		}else{//если отсутствует графа "Принимает ли эфавиренц"
-			td1.style.cssText +="top: 280px";
-			td2.style.cssText +="top: 280px";
+			divVirusTab.style.top = "327px";			
 		}
 		
-		divVirusTab.appendChild(tr);
 		start_window.appendChild(divVirusTab);	
 }
 

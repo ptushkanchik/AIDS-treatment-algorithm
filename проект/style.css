@@ -326,7 +326,7 @@ span {display:table-cell;
 		
 /*стиль для  таблицы ответов на блок "Уровень СД4"*/
 #divCD4Tab {position:absolute;
-			top:205px;
+			top:207px;
 			left:315px;
 			border-spacing:14px;
 			}		
@@ -340,10 +340,50 @@ span {display:table-cell;
 			  text-align:center; 
 			  background:linear-gradient(to top left, #CD853F , #FFDEAD);
 			  box-shadow:10px 8px 20px -1px black; 
-			  cursor:pointer
+			  cursor:pointer;
 			  }	
-		
-		
+			  
+			  
+/*стиль для  блока "Вирусная нагрузка"*/
+#divVirus {width:200px;
+		   height:40px;
+		   border:2px solid black;
+		   border-radius:10px;
+		   line-height:40px;
+		   text-align:center; 
+		   background:linear-gradient(to top left, #CD853F , #FFDEAD);
+		   box-shadow:10px 8px 20px -1px black;
+		   position:absolute;
+		   left:30px;
+		   }
+		   
+/*стиль для  таблицы ответов на блок "Вирусная нагрузка"*/
+#divVirusTab {position:absolute;
+			top:267px;
+			left:315px;
+			border-spacing:14px;}	
+			
+/*стиль для ячеек таблицы ответов на блок "Вирусная нагрузка"*/			
+#divVirusTab td {width:220px;
+				height:35px;
+				border:2px outset;
+				border-radius:10px;
+				vertical-align:middle;
+				text-align:center;
+				background:linear-gradient(to top left, #CD853F , #FFDEAD); 
+				box-shadow:10px 8px 20px -1px black;
+				cursor:pointer;
+			   }		
+
+
+
+
+
+
+
+
+
+
 		                                                           /*  СТИЛИ ДЛЯ РАЗДЕЛА "СПИСОК ЛЕКАРТСВЕННЫХ СРЕДСТВ"  */
 					
 /*стиль для параграфа */
