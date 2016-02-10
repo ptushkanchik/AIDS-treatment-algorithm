@@ -1,4 +1,3 @@
-
 //полифилл эмулирует метод elem.remove() для IE
 if(!Element.prototype.remove){
 	Element.prototype.remove = function(){
