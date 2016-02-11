@@ -593,7 +593,7 @@ function calculateChildbirth(arg){
 		showTabChildbirth();//загрузить таблицу "Ведение родов"
 		};
 	
-	var text = document.body.querySelectorAll(".childbirth");
+	var text = document.body.querySelectorAll(".Childbirth");
 	
 	var p = document.createElement("p");
 	
