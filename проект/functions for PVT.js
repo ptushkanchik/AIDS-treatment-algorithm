@@ -578,10 +578,6 @@ function showChildbirth(event){
 	}
 	
 	
-	
-	
-
-    
 }	
 	
 // функция загрузки текста информации о ведении родов в окно divShowChildbirth	
