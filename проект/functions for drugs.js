@@ -106,7 +106,7 @@ function show_window_aboutDrug(event){
     if(!document.getElementById("openDrugs")){
 		var openDrugs = document.createElement("div");
 		openDrugs.id = "openDrugs";
-		openDrugs.style.cssText = "width:0px; height:3px;background:white;border:2px solid black; border-radius:10px; padding:10px; overflow:auto; position:absolute;top:95px;left:658px;box-shadow:10px 8px 20px -1px black;opacity:1";
+		openDrugs.style.cssText = "width:0px; height:3px;left:658px;";
 		start_window.appendChild(openDrugs);
 	
 		//растягивается в ширину		
