@@ -74,8 +74,10 @@ span {display:table-cell;
 		  top:140px;
 		  margin:30px; 
 		  }
-		  
-		  
+/* стиль для параграфов профилактики для беременных */		  
+.PVT {display:none}
+/* стиль для параграфов ведения родов */
+.Childbirth {display:none}		  
 /* стиль для параграфов лекарственных средств */				
 .Drugs {display:none}
 
@@ -542,7 +544,7 @@ span {display:table-cell;
 					  } 
 .td_list_Drugs:visited {background:red;					  
 					  } 
-/*стиль для окна вывода информации о лекарственном препарате*/					  
+/*стиль для окна вывода информации о лекарственном препарате */					  
 #openDrugs {background:white;
 			border:2px solid black;
 			border-radius:10px;
