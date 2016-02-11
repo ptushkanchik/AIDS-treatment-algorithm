@@ -542,4 +542,15 @@ span {display:table-cell;
 					  } 
 .td_list_Drugs:visited {background:red;					  
 					  } 
+/*стиль для окна вывода информации о лекарственном препарате*/					  
+#openDrugs {background:white;
+			border:2px solid black;
+			border-radius:10px;
+			padding:10px; 
+			overflow:auto;
+			position:absolute;
+			top:95px;
+			box-shadow:10px 8px 20px -1px black;
+			opacity:1;
+			}
 
