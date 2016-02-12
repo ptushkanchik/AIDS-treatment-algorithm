@@ -80,7 +80,8 @@ span {display:table-cell;
 .Childbirth {display:none}		  
 /* стиль для параграфов лекарственных средств */				
 .Drugs {display:none}
-
+/* стиль для блоков оппортунистических инфекций */
+.Opportunity {display:none}
 						
 						
 						                                    /*  СТИЛИ ДЛЯ РАЗДЕЛА "СТАРТ АНТИРЕТРОВИРУСНОЙ ТЕРАПИИ"  */
