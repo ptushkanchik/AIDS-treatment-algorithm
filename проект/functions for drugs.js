@@ -38,11 +38,13 @@ function appendListDrugs(){
 	
 	var listDrugs = document.createElement("table");
 	listDrugs.id = "listDrugs";
+	listDrugs.onmousedown = function(){return false;};//отменить браузерное событие 
 	listDrugs.style.cssText = "opacity:0";
 	
 	var Up = document.createElement("div");
 	Up.id = "Up";
 	Up.onclick = function(){containerUp.scrollTop -=40;};
+	Up.onmousedown = function(){return false;};//отменить браузерное событие 
 	Up.innerHTML = "<p>&#9650;</p>";
 	
 	Up.style.cssText = " opacity:0";
@@ -51,13 +53,14 @@ function appendListDrugs(){
 	var Down = document.createElement("div");
 	Down.id = "Down";
 	Down.onclick = function(){containerUp.scrollTop +=40;};
+	Down.onmousedown = function(){return false;};//отменить браузерное событие 
 	Down.style.cssText = " opacity:0";
 	Down.innerHTML = "<p>&#9660;</p>"
 	
 	
 	start_window.appendChild(Down);
 	
-	var drugs = ["<strong>Абакавир</strong>","<strong>Азитромицин</strong>","<strong>Альбендазол</strong>","<strong>Амикацин</strong>","<strong>Амфотерицин В</strong>","<strong>Ацикловир</strong>","<strong>Валацикловир</strong>","<strong>Ганцикловир</strong>","<strong>Зидовудин</strong>","<strong>Итраконазол</strong>","<strong>Кетоконазол</strong>","<strong>Кларитромицин</strong>","<strong>Клиндамицин</strong>","<strong>Клотримазол</strong>","<strong>Ламивудин</strong>","<strong>Липосомальный амфотерицин В</strong>","<strong>Лопинавир/\nритонавир</strong>","<strong>Метронидазол</strong>","<strong>Миконазол</strong>","<strong>Невирапин</strong>","<strong>Нистатин</strong>","<strong>Парамомицин</strong>","<strong>Пириметамин</strong>","<strong>Рифабутин</strong>","<strong>Саквинавир/\nритонавир</strong>","<strong>Сульфадиазин</strong>","<strong>Тенофовир</strong>","<strong>Триметоприм - Сульфаметоксазол</strong>","<strong>Фамцикловир</strong>","<strong>5 - Флуцитозин</strong>","<strong>Флюконазол</strong>","<strong>Фолиновая кислота</strong>","<strong>Фоскарнет</strong>","<strong>Ципрофлоксацин</strong>","<strong>Эмтрицитабин</strong>","<strong>Этамбутол</strong>","<strong>Эфавиренц</strong>"];
+	var drugs = ["<strong >Абакавир</strong>","<strong>Азитромицин</strong>","<strong>Альбендазол</strong>","<strong>Амикацин</strong>","<strong>Амфотерицин В</strong>","<strong>Ацикловир</strong>","<strong>Валацикловир</strong>","<strong>Ганцикловир</strong>","<strong>Зидовудин</strong>","<strong>Итраконазол</strong>","<strong>Кетоконазол</strong>","<strong>Кларитромицин</strong>","<strong>Клиндамицин</strong>","<strong>Клотримазол</strong>","<strong>Ламивудин</strong>","<strong>Липосомальный амфотерицин В</strong>","<strong>Лопинавир/\nритонавир</strong>","<strong>Метронидазол</strong>","<strong>Миконазол</strong>","<strong>Невирапин</strong>","<strong>Нистатин</strong>","<strong>Парамомицин</strong>","<strong>Пириметамин</strong>","<strong>Рифабутин</strong>","<strong>Саквинавир/\nритонавир</strong>","<strong>Сульфадиазин</strong>","<strong>Тенофовир</strong>","<strong>Триметоприм - Сульфаметоксазол</strong>","<strong>Фамцикловир</strong>","<strong>5 - Флуцитозин</strong>","<strong>Флюконазол</strong>","<strong>Фолиновая кислота</strong>","<strong>Фоскарнет</strong>","<strong>Ципрофлоксацин</strong>","<strong>Эмтрицитабин</strong>","<strong>Этамбутол</strong>","<strong>Эфавиренц</strong>"];
 	
 	for(var i=0;i<drugs.length;i++){
 		var tr = document.createElement("tr");
