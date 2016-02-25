@@ -1,9 +1,7 @@
 //функция загружает параграф в стартовое окно
 function appendParagraphDrugs(){
-	while(start_window.children.length){//если в стартовом окне что-то есть - очистить стартовое окно
-		start_window.removeChild(start_window.firstChild);
-		}
-	
+	$("#start_window").empty();//если в стартовом окне что-то есть - очистить стартовое окно
+			
 	start_window.style.height = "563px";
 //создание параграфа
     	
