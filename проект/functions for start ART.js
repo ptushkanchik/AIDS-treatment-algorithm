@@ -1,10 +1,8 @@
 //добавление таблицы и параграфа в стартовое окно при клике на вкладку "Старт антиретровирусной терапии"
 function appendTabART(){
   
- while(start_window.children.length){//если в стартовом окне что-то есть - очистить стартовое окно
-		start_window.removeChild(start_window.firstChild);
-		}
-  
+ $("#start_window").empty();//если в стартовом окне что-то есть - очистить стартовое окно
+		  
   var attention = document.createElement("div");
   attention.id = "paragraph_Start_ART";  
   attention.style.cssText = "opacity:0; ";
