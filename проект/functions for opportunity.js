@@ -1,9 +1,8 @@
 ﻿//функция очистки стартового поля и вывода меню оппортунистических инфекций
 function appendParagraphOpportunity(){
 	
-	while(start_window.children.length){//если в стартовом окне что-то есть - очистить стартовое окно
-		start_window.removeChild(start_window.firstChild);
-		}
+	$("#start_window").empty();//если в стартовом окне что-то есть - очистить стартовое окно
+		
 	
 	start_window.style.height = "563px";
 	
