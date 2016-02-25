@@ -1,9 +1,7 @@
 ﻿//функция выводит ячейки "Профилактика беременным" и "Профилактика новорожденным"
 function appendMenuPVT(){
 //если в стартовом окне что-то есть - очистить стартовое окно
-	while(start_window.children.length){
-		start_window.firstChild.remove();
-		}
+	$("#start_window").empty();
 //вернуть размер окна к первоначальному
 	start_window.style.height = "563px";	
 	
@@ -155,7 +153,7 @@ function showEfavirenz(event){
 		
 		for(var i=0;i<2;i++){
 			var td = document.createElement("td");			
-				td.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for satrt ART")
+				td.onclick = flash;//функция закрашивания кликнутой ячейки и снятия закраски с остальных ячеек (находится в файле "functions for start ART")
 				td.addEventListener("click",showCD4);
 				td.addEventListener("mouseover",function(){ if(this.style.backgroundColor!="red"){this.style.background = "#FFFAF0"; }});
 				td.addEventListener("mouseout",function(){ if(this.style.backgroundColor!="red"){this.style.background = ""; }});
