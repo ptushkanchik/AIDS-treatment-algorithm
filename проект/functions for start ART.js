@@ -30,17 +30,9 @@ function appendTabART(){
 	start_window.appendChild(divTab);
 
 	buildTable();//вызов функции построения таблицы выбора ответов на вопросы
-//
-	var x = setTimeout(function X(){
-		if(attention.style.opacity!=1 && divTab.style.opacity!=1){
-			attention.style.opacity = parseFloat(attention.style.opacity)+0.05+"";
-			divTab.style.opacity = parseFloat(divTab.style.opacity)+0.05+"";
-			setTimeout(X,50);
-		}else{
-			clearTimeout(x);
-		
-		}
-	},100);
+
+	$("#paragraph_Start_ART").animate({opacity:"1"},1000);
+	$("#divTab_Questions").animate({opacity:"1"},1000);
 }
 
 //построение таблицы выбора ответов на вопросы
@@ -86,14 +78,7 @@ function buildTable(){
 	} 
 	start_window.appendChild(table); 
 	
-	var x = setTimeout(function X(){
-		if(table.style.opacity!=1){
-			table.style.opacity=parseFloat(table.style.opacity)+0.05+"";
-			setTimeout(X,50);
-		}else{
-			clearTimeout(x);
-			}
-		},100);
+	$("#tab").animate({opacity:"1"},1000);
 } 
 
 //функция вывода строк и закрашивания ячеек 
