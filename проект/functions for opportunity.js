@@ -13,16 +13,7 @@ function appendParagraphOpportunity(){
 		attention.style.cssText = "opacity:0; ";
 		attention.innerHTML = "<span style=\"color:red\">ВНИМАНИЕ!</span>  &nbsp В данном разделе рассмотрено <b><u>только лечение</u></b> наиболее специфичных для ВИЧ-инфицированных пациентов оппортунистических инфекций. Заболевания, характерные для широкого круга пациентов \(сальмонеллез, бактериальные пневмонии и т.д.\), а также опухоли \(саркома Капоши, лимфома\) и туберкулез не рассматриваются. ";
    start_window.appendChild(attention);
-   var x = setTimeout(function X(){//плавное появление параграфа
-		if(attention.style.opacity!=1 ){
-			attention.style.opacity = parseFloat(attention.style.opacity)+0.05+"";
-			
-			setTimeout(X,50);
-		}else{
-			clearTimeout(x);
-		
-		}
-	},100);
+   $("#paragraphOpportunity").animate({opacity:"1"},1000);
    appendTabOpportunity();//функция создание таблицы выбора инфекции
 }
 
@@ -55,18 +46,8 @@ function appendTabOpportunity(){
 		arrTD[i].addEventListener("click",openOppWindow);//функция загрузки окна вывода информации о конкретной инфекции
 		}
 	start_window.appendChild(table);
+	$("#oppTab").animate({opacity:"1"},1000);
 	
-	
-  
-  var x = setTimeout(function X(){//плавное появление параграфа и таблицы
-		if( oppTab.style.opacity!=1 ){			
-			oppTab.style.opacity = parseFloat(oppTab.style.opacity)+0.05+"";
-			setTimeout(X,50);
-		}else{
-			clearTimeout(x);
-		
-		}
-	},100);
   
 }
 
