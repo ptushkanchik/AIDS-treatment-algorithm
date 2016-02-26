@@ -45,14 +45,9 @@ function startWindow(){
 			}
 		start_window.appendChild(ul);
 //уменьшение прозрачности		
-	var z = setTimeout(function ShowText(){
-			if(p.style.opacity !=1 && ul.style.opacity !=1){
-				p.style.opacity = parseFloat(paragraph_Start.style.opacity)+0.1+"";
-				ul.style.opacity = parseFloat(ul.style.opacity)+0.1+"";
-				setTimeout(ShowText,50);
-			}else{
-				 clearTimeout(z);
-			}
+	var z = setTimeout(function (){
+				$("#paragraph_Start").animate({opacity:"1"},500);
+				$("#ul_Start").animate({opacity:"1"},500);
 	        },800); 
 }
 
