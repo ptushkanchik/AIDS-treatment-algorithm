@@ -35,14 +35,7 @@ function appendMenuPVT(){
 	start_window.appendChild(table_Menu);	
 
 //плавное появление таблицы table_Menu	
-	var x = setTimeout(function X(){
-		if(table_Menu.style.opacity!=1){
-			table_Menu.style.opacity = parseFloat(table_Menu.style.opacity)+0.05+"";
-			setTimeout(X,50);
-		}else{
-			clearTimeout(x);		
-		}
-	},100);	
+    $("#table_MenuPVT").animate({opacity:"1"},1000);
 }
 		
 		
@@ -595,18 +588,8 @@ function calculateChildbirth(arg){
 	
 	var p = document.createElement("p");
 	
-	if(arg==0){
-		p.innerHTML = text[0].innerHTML;
-	}
-	if(arg==1){
-		p.innerHTML = text[1].innerHTML;
-	}
-	if(arg==2){
-		p.innerHTML = text[2].innerHTML;
-	}
-	if(arg==3){
-		p.innerHTML = text[3].innerHTML;
-	}
+	p.innerHTML = text[arg].innerHTML;
+	
 	start_window.appendChild(input);
 //плавное появление кнопки "Назад"	
 	setTimeout(function(){
@@ -615,6 +598,7 @@ function calculateChildbirth(arg){
 	divShowChildbirth.appendChild(document.createElement("br"));
 	divShowChildbirth.appendChild(p);
 }		
-	
+
+
 
 
