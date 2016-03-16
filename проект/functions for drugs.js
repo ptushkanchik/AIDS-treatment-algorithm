@@ -1,25 +1,11 @@
 //функция загружает параграф в стартовое окно
 function appendParagraphDrugs(){
-	$("#start_window").empty();//если в стартовом окне что-то есть - очистить стартовое окно
-			
-	start_window.style.height = "563px";
+	$("#start_window").empty().css("height", "563px");//если в стартовом окне что-то есть - очистить стартовое окно, установить высоту окна
 //создание параграфа
-    	
-	var attentionDrugs = document.createElement("div");
-		attentionDrugs.id = "attentionDrugs";
-		attentionDrugs.style.cssText = " opacity:0 ";
-		attentionDrugs.innerHTML = "<span style=\"color:red\">ВНИМАНИЕ!</span>  &nbsp В данном разделе рассмотрены лекарственные препараты, упомянутые в данной программе. Препараты располагаются в алфавитном порядке, без учета принадлежности к той или иной фармакологической группе. ";
-   start_window.appendChild(attentionDrugs);
+    var attentionDrugs = document.createElement("div");
+	$(attentionDrugs).attr("id", "attentionDrugs").css("opacity","0").append("<span style=\"color:red\">ВНИМАНИЕ!</span>  &nbsp В данном разделе рассмотрены лекарственные препараты, упомянутые в данной программе. Препараты располагаются в алфавитном порядке, без учета принадлежности к той или иной фармакологической группе.");
+    $("#start_window").append(attentionDrugs);
    
-   var x = setTimeout(function X(){//плавное появление параграфа 
-		if(attentionDrugs.style.opacity!=1 ){
-			attentionDrugs.style.opacity = parseFloat(attentionDrugs.style.opacity)+0.05+"";			
-			setTimeout(X,50);
-		}else{
-			clearTimeout(x);		
-		}
-	},100);
-	
 	appendListDrugs();   
 }
 
@@ -27,89 +13,56 @@ function appendParagraphDrugs(){
 function appendListDrugs(){
 	
 	var container = document.createElement("div");
-	container.id = "container";
-	start_window.appendChild(container);
+	$(container).attr("id","container").appendTo($(start_window));
 	
 	var containerUp = document.createElement("div");
-	containerUp.id = "containerUp";
-	container.appendChild(containerUp);
-	
+	$(containerUp).attr("id","containerUp").appendTo($(container));
+		
 	var listDrugs = document.createElement("table");
-	listDrugs.id = "listDrugs";
-	listDrugs.onmousedown = function(){return false;};//отменить браузерное событие 
-	listDrugs.style.cssText = "opacity:0";
+	$(listDrugs).attr("id","listDrugs").mousedown(function(){return false;}).css("opacity","0");
 	
 	var Up = document.createElement("div");
-	Up.id = "Up";
-	Up.onclick = function(){containerUp.scrollTop -=40;};
-	Up.onmousedown = function(){return false;};//отменить браузерное событие 
-	Up.innerHTML = "<p>&#9650;</p>";
-	
-	Up.style.cssText = " opacity:0";
-	start_window.appendChild(Up);
-	
+	$(Up).attr("id","Up").click(function(){containerUp.scrollTop -=40;}).mousedown(function(){return false;}).append("<p>&#9650;</p>").css("opacity","0").appendTo($(start_window));
+		
 	var Down = document.createElement("div");
-	Down.id = "Down";
-	Down.onclick = function(){containerUp.scrollTop +=40;};
-	Down.onmousedown = function(){return false;};//отменить браузерное событие 
-	Down.style.cssText = " opacity:0";
-	Down.innerHTML = "<p>&#9660;</p>"
-	
-	
-	start_window.appendChild(Down);
-	
+	$(Down).attr("id","Down").click(function(){containerUp.scrollTop +=40;}).mousedown(function(){return false;}).append("<p>&#9660;</p>").css("opacity","0").appendTo($(start_window));
+		
 	var drugs = ["<strong >Абакавир</strong>","<strong>Азитромицин</strong>","<strong>Альбендазол</strong>","<strong>Амикацин</strong>","<strong>Амфотерицин В</strong>","<strong>Ацикловир</strong>","<strong>Валацикловир</strong>","<strong>Ганцикловир</strong>","<strong>Зидовудин</strong>","<strong>Итраконазол</strong>","<strong>Кетоконазол</strong>","<strong>Кларитромицин</strong>","<strong>Клиндамицин</strong>","<strong>Клотримазол</strong>","<strong>Ламивудин</strong>","<strong>Липосомальный амфотерицин В</strong>","<strong>Лопинавир/\nритонавир</strong>","<strong>Метронидазол</strong>","<strong>Миконазол</strong>","<strong>Невирапин</strong>","<strong>Нистатин</strong>","<strong>Парамомицин</strong>","<strong>Пириметамин</strong>","<strong>Рифабутин</strong>","<strong>Саквинавир/\nритонавир</strong>","<strong>Сульфадиазин</strong>","<strong>Тенофовир</strong>","<strong>Триметоприм - Сульфаметоксазол</strong>","<strong>Фамцикловир</strong>","<strong>5 - Флуцитозин</strong>","<strong>Флюконазол</strong>","<strong>Фолиновая кислота</strong>","<strong>Фоскарнет</strong>","<strong>Ципрофлоксацин</strong>","<strong>Эмтрицитабин</strong>","<strong>Этамбутол</strong>","<strong>Эфавиренц</strong>"];
 	
 	for(var i=0;i<drugs.length;i++){
 		var tr = document.createElement("tr");
 		var td = document.createElement("td");
-		td.className = "td_list_Drugs";
-		td.onclick =  show_window_aboutDrug;
-		td.innerHTML = drugs[i];
-		tr.appendChild(td);
-		listDrugs.appendChild(tr);
+		$(td).addClass("td_list_Drugs").click(show_window_aboutDrug).append(drugs[i]).appendTo($(tr));
+		$(listDrugs).append($(tr));
 	}
 	
-	var x = setTimeout(function X(){//плавное появление списка 
-		if(listDrugs.style.opacity!=1 && Up.style.opacity!=1 && Down.style.opacity!=1 ){
-			listDrugs.style.opacity = parseFloat(listDrugs.style.opacity)+0.05+"";	
-			Up.style.opacity = parseFloat(Up.style.opacity)+0.05+"";	
-			Down.style.opacity = parseFloat(Down.style.opacity)+0.05+"";				
-			setTimeout(X,50);
-		}else{
-			clearTimeout(x);		
-		}
-	},100);
+	$(containerUp).append(listDrugs);
 	
-	
-	containerUp.appendChild(listDrugs);
-	
+	$("#listDrugs, #Up, #Down, #attentionDrugs").animate({opacity:"1"},1000)
 	
 };
 
 //функция создает окно вывода информации о лекарственном средстве
 function show_window_aboutDrug(event){
-	var arr_td_list_Drugs = listDrugs.querySelectorAll(".td_list_Drugs");
+	var arr_td_list_Drugs = $(".td_list_Drugs");
 	
-	var arr_Drugs = document.body.querySelectorAll(".Drugs");
+	var arr_Drugs = $(".Drugs");
 	
 	var a = [].indexOf.call(arr_td_list_Drugs, event.currentTarget);
 	
 	for(var i=0;i<arr_td_list_Drugs.length;i++){
 		if(arr_td_list_Drugs[i]==event.currentTarget){
-			arr_td_list_Drugs[i].style.background = "red";
+			$(arr_td_list_Drugs[i]).css("background-color","red");
 		}else{
-			arr_td_list_Drugs[i].style.background = "";
+			$(arr_td_list_Drugs[i]).css("background-color","");
 		}
 	}
 	
 //если в стартовом окне нет окна вывода информации о лекарственном средстве - создать его	
     if(!document.getElementById("openDrugs")){
 		var openDrugs = document.createElement("div");
-		openDrugs.id = "openDrugs";
-		openDrugs.style.cssText = "width:0px; height:3px;left:658px;";
-		start_window.appendChild(openDrugs);
-	
+		$(openDrugs).attr("id","openDrugs").css({width:"0px",height:"3px", left:"658px"}).appendTo($(start_window));
+			
 		//растягивается в ширину		
 		var x = setTimeout(function X(){
 				if(parseInt(openDrugs.style.width)<=parseInt("522px")){
